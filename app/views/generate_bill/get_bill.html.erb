@@ -1,0 +1,30 @@
+<h1 class="header_info" align="center">Generated Prepaid Bill For Auto</h1>
+
+<h3 id="bill_header" align="center" > Bill Receipt ( Id : <%= (0..2).map{65.+(rand(26)).chr}.join + rand(1000...9999).to_s %> )</h3>
+<table id="bill_details" align="center">
+    <tr>
+      <td> Vehicle Number </td>
+      <td> <%= @selected_vehicle.vehicle_number %> </td>
+    </tr>
+    <tr>
+      <td> Vehicle Owner </td>
+      <td> <%= @selected_vehicle.owner %></td>
+    </tr>
+    <tr>
+      <td> Place To Go </td>
+      <td> <%= @selected_place.name %></td>
+    </tr>
+    <tr>
+      <td> Distance To Travel </td>
+      <td> <%= @selected_place.distance %> Km</td>
+    </tr>
+    <tr>
+      <td> Total Fare </td>
+      <td> <%= @fare %> Rs.</td>
+    </tr>
+</table>
+<br />
+
+<table align="center">
+  <tr>> <td> <%= button_to "Generate New Bill",  root_path, id: "link_to_home", :method => :get %> </td></tr>
+</table>

@@ -1,0 +1,24 @@
+<h1 class="header_info" align="center">Generate Prepaid Bill For Auto</h1>
+
+<table id="bill_form_table" align="center" width="550" height="135">
+  <%= form_for :travel_info, url: {action: "get_bill"}, html: {method: "get"} do |f| %>
+    <tr>
+       <td width="40%" align="center"> <%= label_tag "Vehicle Number " %> </td>
+       <td width="60%"> : <%= f.select :vehicle_id, options_for_select(@vehicles.collect {|vehicle| [vehicle.vehicle_number, vehicle.id ]}, 1),
+                 {}, {id: 'vehicles_number'} %> <br />
+       </td>
+    </tr>
+    <tr>
+       <td width="40%" align="center"> <%= label_tag "Place To Go " %> </td>
+       <td width="60%"> : <%= f.select :place_id, options_for_select(@places.collect { |place| [place.name, place.id ]},1), {}, {id: 'places_name'} %><br />
+       </td>
+    </tr>
+    <tr><td>&nbsp;</td></tr>
+    <tr>
+       <td align="center" width="40%">
+            <%= submit_tag "Get Bill", :id => "form_submit"%>
+       </td>
+    </tr>
+<% end %>
+
+</table>
